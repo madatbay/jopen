@@ -73,7 +73,7 @@ export default function BoardDetail() {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="p" component="p" align="center">
+              <Typography variant="caption" component="p" align="center">
                 {`${created_at.getDate()}.${created_at.getMonth()}.${created_at.getFullYear()} ${created_at.getHours()}:${created_at.getMinutes()}`}
               </Typography>
             </Grid>
