@@ -4,6 +4,7 @@ import BoardList from "./components/BoardList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import BoardCreate from "./components/BoardCreate";
 import BoardDetail from "./components/BoardDetail";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           </Route>
         </Switch>
       </Container>
+      <Footer />
     </Router>
   );
 }

@@ -40,7 +40,7 @@ export default function BoardCreate() {
       >
         Create new board
       </Typography>
-      <Grid container spacing={3} xs={6}>
+      <Grid container spacing={3}>
         <Grid item xs={12}>
           <TextField
             id="filled-basic"

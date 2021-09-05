@@ -20,11 +20,11 @@ export default function BoardList() {
 
   return (
     <Grid container spacing={3}>
-      {boards.map((board) => (
+      {boards.length > 0 ? boards.map((board) => (
         <Grid item xs={12} sm={6} md={3} key={board.id}>
           <BoardCard board={board} />
         </Grid>
-      ))}
+      )) : <h1 className="text-center">No active boards</h1>}
     </Grid>
   );
 }
