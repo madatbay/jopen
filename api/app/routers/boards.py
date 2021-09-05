@@ -27,7 +27,7 @@ def get_db():
 
 @router.get("/all/", response_model=List[schemas.Board])
 async def read_boards(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    boards = db.query(models.Board).offset(skip).limit(limit).all()
+    boards = db.query(models.Board).order_by(models.Board.created_at.desc()).offset(skip).limit(limit).all()
     return boards
 
 
