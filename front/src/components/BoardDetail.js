@@ -45,7 +45,7 @@ export default function BoardDetail() {
         console.log(error);
       })
       .then(function () {});
-  }, []);
+  });
 
   return (
     <Card className={classes.root} raised>

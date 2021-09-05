@@ -53,7 +53,7 @@ export default function BoardCreate() {
           logo_url: companyLogo
         })
         .then(function (response) {
-          if (response.status == 200){
+          if (response.status === 200){
             history.push(`/board/${response.data.id}`)
           }
         })
