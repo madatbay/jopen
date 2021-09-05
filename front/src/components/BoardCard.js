@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import { Grid } from "@material-ui/core";
 import Chip from "@material-ui/core/Chip";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -22,23 +23,24 @@ const useStyles = makeStyles({
   },
 });
 
-export default function BoardCard() {
+export default function BoardCard({board}) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <Link to={`/board/${board.id}`} >
+            <CardActionArea>
         <CardContent>
           <Grid container spacing={1}>
             <Grid item>
               <Avatar
-                alt="Company name"
-                src="https://www.oneclickshoppers.com/wp-content/uploads/2020/08/lays_logo.jpg"
+                alt={board.company_name}
+                src={board.logo_url}
               />
             </Grid>
             <Grid item>
               <Typography gutterBottom variant="h5" component="h2">
-                Lizard
+                {board.title}
               </Typography>
             </Grid>
           </Grid>
@@ -48,23 +50,24 @@ export default function BoardCard() {
             component="p"
             className={classes.mt2}
           >
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            {String(board.describtion).slice(0, 120)}
           </Typography>
         </CardContent>
       </CardActionArea>
+      </Link>
+
       <CardActions>
         <Grid container justifyContent="space-between">
           <Grid item>
-            <Button size="small" className={classes.btn}>
+            <Button size="small" className={classes.btn} href={board.url}>
               Apply
             </Button>
-            <Button size="small" className={classes.btn}>
+            <Button size="small" className={classes.btn} disabled>
               Share
             </Button>
           </Grid>
           <Grid item>
-            <Chip label="Basic" variant="outlined" />
+            <Chip label={`#${board.id}`} variant="outlined" />
           </Grid>
         </Grid>
       </CardActions>
