@@ -20,9 +20,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-  style: {
-    background: "#009688",
-  },
 }));
 
 export default function Navbar() {

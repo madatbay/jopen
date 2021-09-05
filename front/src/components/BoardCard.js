@@ -15,9 +15,6 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 345,
   },
-  btn: {
-    color: "#009688",
-  },
   mt2: {
     marginTop: 8,
   },
@@ -59,10 +56,10 @@ export default function BoardCard({board}) {
       <CardActions>
         <Grid container justifyContent="space-between">
           <Grid item>
-            <Button size="small" className={classes.btn} href={board.url}>
+            <Button size="small" color="primary" href={board.url}>
               Apply
             </Button>
-            <Button size="small" className={classes.btn} disabled>
+            <Button size="small" color="primary" disabled>
               Share
             </Button>
           </Grid>

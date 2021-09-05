@@ -12,14 +12,6 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
-  add: {
-    background: "#009688",
-    color: "#ffffff",
-    "&:hover": {
-      background: "#26a69a",
-      color: "#ffffff",
-    },
-  },
   form: {
     display: "flex",
     flexDirection: "column",
@@ -86,7 +78,7 @@ export default function BoardCreate() {
         <Grid item xs={12}>
           <Button
             variant="contained"
-            className={classes.add}
+            color="primary"
             endIcon={<SendIcon />}
             fullWidth
             style={{padding: 14}}
