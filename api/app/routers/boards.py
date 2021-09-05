@@ -1,11 +1,12 @@
+import secrets
 from datetime import datetime
 from typing import List
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
+
 from app import models, schemas
 from app.database import SessionLocal, engine
-
 from app.dependencies import get_token_header
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -42,13 +43,13 @@ async def get_board(board_id: str, db: Session = Depends(get_db)):
 
 
 @router.post("/create/", response_model=schemas.Board)
-async def create_board(
-    board_id: str, board: schemas.BoardCreate, db: Session = Depends(get_db)
+async def create_board(board: schemas.BoardCreate, db: Session = Depends(get_db)
 ):
-    board_check = db.query(models.Board).filter(models.Board.id == board_id).first()
-    if board_check:
-        raise HTTPException(status_code=400, detail="Board already registered")
-    print(board)
+    while True:
+        board_id = secrets.token_hex(3)
+        board_check = db.query(models.Board).filter(models.Board.id == board_id).first()
+        if not board_check:
+            break
     db_board = models.Board(
         id=board_id,
         title=board.title,
