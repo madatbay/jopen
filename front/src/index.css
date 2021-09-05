@@ -39,6 +39,14 @@ a {
   margin: 0;
 }
 
+.footer .link-group{
+  margin-top: .6rem;
+}
+
+.footer .link-group > *{
+  margin: .4rem;
+}
+
 .text-center{
   width: 100%;
   text-align: center;
