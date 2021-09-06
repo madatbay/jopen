@@ -48,7 +48,7 @@ export default function BoardDetail() {
   });
 
   return (
-    <Card className={classes.root} raised>
+    <Card className={classes.root} variant="outlined">
       <CardActionArea>
         <CardContent>
           <Grid container spacing={1} justifyContent="center">

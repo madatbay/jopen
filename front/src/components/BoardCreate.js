@@ -72,9 +72,9 @@ export default function BoardCreate() {
         <Grid item xs={12}>
           <TextField
             required
-            id="filled-title"
+            id="outlined-title"
             label="Title"
-            variant="filled"
+            variant="outlined"
             fullWidth
             error={titleError}
             value={title}
@@ -87,9 +87,9 @@ export default function BoardCreate() {
         <Grid item xs={12}>
           <TextField
             required
-            id="filled-describtion"
+            id="outlined-describtion"
             label="Describtion"
-            variant="filled"
+            variant="outlined"
             fullWidth
             minRows="10"
             multiline
@@ -104,9 +104,9 @@ export default function BoardCreate() {
         <Grid item xs={12}>
           <TextField
             required
-            id="filled-url"
+            id="outlined-url"
             label="Apply URL"
-            variant="filled"
+            variant="outlined"
             fullWidth
             error={urlError}
             value={url}
@@ -119,9 +119,9 @@ export default function BoardCreate() {
         <Grid item xs={6}>
           <TextField
             required
-            id="filled-company-name"
+            id="outlined-company-name"
             label="Company name"
-            variant="filled"
+            variant="outlined"
             fullWidth
             error={companyNameError}
             value={companyName}
@@ -134,9 +134,9 @@ export default function BoardCreate() {
         <Grid item xs={6}>
           <TextField
             required
-            id="filled-company-logo"
+            id="outlined-company-logo"
             label="Company logo URL"
-            variant="filled"
+            variant="outlined"
             fullWidth
             error={companyLogoError}
             value={companyLogo}
@@ -148,7 +148,7 @@ export default function BoardCreate() {
         </Grid>
         <Grid item xs={12}>
           <Button
-            variant="contained"
+            variant="outlined"
             color="primary"
             endIcon={<SendIcon />}
             fullWidth

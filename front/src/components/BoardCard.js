@@ -24,7 +24,7 @@ export default function BoardCard({board}) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} variant="outlined">
       <Link to={`/board/${board.id}`} >
             <CardActionArea>
         <CardContent>

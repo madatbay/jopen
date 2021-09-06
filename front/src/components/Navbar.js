@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" className={classes.style}>
+      <AppBar position="static" className={classes.style} elevation={0}>
         <Toolbar>
           <Link to="/">
             <IconButton
