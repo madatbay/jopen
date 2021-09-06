@@ -1,0 +1,65 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    container_name: jopen_db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=jopen
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks: 
+      - jopen_network
+
+  api:
+    build: "api"
+    container_name: "jopen_api"
+    command: bash -c "cd api && alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks: 
+      - jopen_network
+
+  front:
+    build: "front"
+    container_name: "jopen_front"
+    command: npm start
+    volumes:
+      - ./front:/app
+    ports:
+      - "80:3000"
+    depends_on:
+      - db
+      - api
+    networks: 
+      - jopen_network
+
+  pgadmin:
+    container_name: jopen_pgadmin
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    volumes:
+      - pg_admin:/var/lib/pgadmin
+    networks: 
+      - jopen_network
+
+networks:
+  jopen_network:
+
+volumes:
+  postgres:
+  pg_admin:
